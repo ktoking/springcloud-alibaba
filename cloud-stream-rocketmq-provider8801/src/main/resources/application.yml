@@ -1,0 +1,31 @@
+server:
+  port: 8801
+
+spring:
+  application:
+    name: rocketmq-provider
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          namesrv-addr: 39.96.86.4:9876;59.110.158.93:9876
+      # 定义name为output的binding
+      bindings:
+        output: # 定义name为output的binding
+          destination: springboot-mq
+          content-type: application/json
+        # 定义name为input的binding
+#        input1:
+#          destination: test-topic
+#          content-type: application/json
+#          group: group1
+
+eureka:
+  client: #客户端进行eureka注册的配置
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 2  #设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 5 #如果现在超过了5秒的间隔（默认是90秒）
+    instance-id: send-8801.com  #在信息列表时显示主机名称
+    prefer-ip-address: true     #访问的路径变为IP地址

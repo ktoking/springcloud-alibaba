@@ -8,7 +8,7 @@ spring:
     stream:
       rocketmq:
         binder:
-          namesrv-addr: 39.96.86.4:9876;59.110.158.93:9876
+          namesrv-addr: 一号服务器公网IP:9876;二号服务器公网IP:9876
       # 定义name为output的binding
       bindings:
         output: # 定义name为output的binding
